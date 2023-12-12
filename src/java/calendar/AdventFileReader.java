@@ -11,15 +11,12 @@ public class AdventFileReader {
 
     /**
      * Metoda pro získání řádku souboru
+     * fileName - název souboru
      *
-     * @Param @String fileName - název souboru
-     *
-     * @Return @List<String> lines - list řádků souboru
+     * @return lines - list řádků souboru
      */
     public List<String> getFileLines(String fileName) {
-        String path = this.getClass().getName();
         List<String> lines = new ArrayList<>();
-        lines.add(path);
         try {
             FileReader fileReader = new FileReader(fileName);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -27,8 +24,7 @@ public class AdventFileReader {
             lines = bufferedReader.lines().toList();
 
             bufferedReader.close();
-        }
-        catch(IOException ex) {
+        } catch (IOException ex) {
             System.out.println("Soubor '" + fileName + "' nebyl nalezen");
         }
 
